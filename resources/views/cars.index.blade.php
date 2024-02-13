@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Try</h2>
+    <h1>List Car</h1>
+
+    <ul>
+        @foreach ($cars as $car)
+            <li>{{ $car->brand }} - {{ $car->model }} ({{ $car->year }} {{$car->color}}) </li>
+        @endforeach
+    </ul>
 </body>
 </html>
