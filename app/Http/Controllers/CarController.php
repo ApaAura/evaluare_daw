@@ -13,7 +13,7 @@ class CarController extends Controller
     public function index()
     {
         $cars = Car::all();
-        return view('cars.index', ['cars'=>$cars]);
+        return view('index', ['cars'=>$cars]);
     }
 
     /**
@@ -21,7 +21,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('cars.create');
+        return view('create');
     }
 
     /**
@@ -36,9 +36,9 @@ class CarController extends Controller
             'color' => 'required'
         ]);
 
-        $car = Car::create($request->all());
+        Car::create($request->all());
 
-        return redirect()->route('cars.index')->with('success', 'Car created successfully!');
+        return redirect()->route('cars.index');
     }
 
     /**
@@ -54,7 +54,7 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        return view('cars.edit',['car'=>$car]);
+        return view('edit',['car'=>$car]);
     }
 
     /**
@@ -62,15 +62,11 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        $request->validate([
-            'brand' => 'required',
-            'model' => 'required',
-            'year' => 'required|numeric',
-            'color' => 'required'
-        ]);
-
-        $car->update($request->all());
-
+        $car->brand=$request->brand;
+        $car->model=$request->model;
+        $car->year=$request->year;
+        $car->color=$request->color;
+        $car->save();
         return redirect()->route('cars.index');
     }
 
@@ -80,7 +76,7 @@ class CarController extends Controller
     public function destroy(Car $car)
     {
         $car->delete();
-        return redirect()->route('cars.index');
+        return redirect()->back();
     }
     
 }

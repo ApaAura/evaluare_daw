@@ -8,10 +8,10 @@
     <form method="POST" action="/cars/{{ $car->id }}">
         @csrf
         @method('PUT')
-        <input type="text" name="make" value="{{ $car->brand }}" placeholder="Brand">
+        <input type="text" name="brand" value="{{ $car->brand }}" placeholder="Brand">
         <input type="text" name="model" value="{{ $car->model }}" placeholder="Model">
         <input type="number" name="year" value="{{ $car->year }}" placeholder="Year">
-        <input type="text" name="model" value="{{ $car->color }}" placeholder="Color">
+        <input type="text" name="color" value="{{ $car->color }}" placeholder="Color">
         <button type="submit">Update</button>
     </form>
 </body>

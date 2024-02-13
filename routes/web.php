@@ -16,10 +16,10 @@ use App\Http\Controllers\CarController;
 
 Route::prefix('cars')->group(function () {
     Route::get('/', [CarController::class, 'index'])->name('cars.index');
-    Route::get('/create', [CarController::class, 'create'])->name('cars.create');
-    Route::post('/', [CarController::class, 'store'])->name('cars.store');
-    Route::get('/{car}/edit', [CarController::class, 'edit'])->name('cars.edit');
-    Route::put('/{car}', [CarController::class, 'update'])->name('cars.update');
-    Route::delete('/{car}', [CarController::class, 'destroy'])->name('cars.destroy');
+    Route::get('/create', [CarController::class, 'create']);
+    Route::post('/', [CarController::class, 'store']);
+    Route::get('/{car}/edit', [CarController::class, 'edit']);
+    Route::put('/{car}', [CarController::class, 'update']);
+    Route::delete('/{car}', [CarController::class, 'destroy']);
 });
-Route::resource('cars', 'CarController');
+Route::resource('cars', CarController::class);

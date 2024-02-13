@@ -13,7 +13,7 @@
         <input type="text" name="brand" placeholder="Brand">
         <input type="text" name="model" placeholder="Model">
         <input type="number" name="year" placeholder="Year">
-        <input type="number" name="color" placeholder="Color">
+        <input type="text" name="color" placeholder="Color">
         
 
         <button type="submit">Add</button>
