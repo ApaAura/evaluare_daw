@@ -7,6 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>create</h3>
+    <h2>Add new car</h2>
+    <form method="POST" action="/cars">
+        @csrf
+        <input type="text" name="brand" placeholder="Brand">
+        <input type="text" name="model" placeholder="Model">
+        <input type="number" name="year" placeholder="Year">
+        <input type="number" name="color" placeholder="Color">
+        
+
+        <button type="submit">Add</button>
+    </form>
 </body>
 </html>
