@@ -20,6 +20,6 @@ Route::prefix('cars')->group(function () {
     Route::post('/', [CarController::class, 'store']);
     Route::get('/{car}/edit', [CarController::class, 'edit']);
     Route::put('/{car}', [CarController::class, 'update']);
-    Route::delete('/{car}', [CarController::class, 'destroy']);
+    Route::delete('/{car}', [CarController::class, 'destroy'])->name('cars.destroy');
 });
 Route::resource('cars', CarController::class);

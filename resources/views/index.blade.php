@@ -9,7 +9,14 @@
 </head>
 <body>
     <div class="container">
-    <h2>Car List</h2>
+    <div class="row my-2">
+        <h2 class="col-lg-10 mx-3">Car List</h2>
+        <div class="col-lg-1">
+            <a href="{{ route('cars.create')}}" class="btn btn-success btn-sm my-2">
+                Add
+            </a>
+        </div>
+    </div>
         <div class="row">
             @forelse ($cars as $car)
             <div class="col-lg-3">
@@ -18,11 +25,14 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$car->model}}</h5>
                         <p class="card-text">{{$car->year}}  {{$car->color}} </p>
-                        <a href="{{ route('cars.edit', ['car'=>$car -> id]) }}" class="btn btn-warning btn-sm m-1">Edit</a>
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-warning btn-sm m-1">Delete</button>
-                        </form>
+                        <div class="d-flex">
+                            <a href="{{ route('cars.edit', ['car'=>$car -> id]) }}" class="btn btn-warning btn-sm m-1">Edit</a>
+                            <form action="{{ route('cars.destroy', ['car'=>$car]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-warning btn-sm m-1">Delete</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
